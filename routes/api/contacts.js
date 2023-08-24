@@ -13,12 +13,12 @@ const router = express.Router();
 
 router.get("/", ctrl.allContacts);
 
-router.get("/:contactId", ctrl.getById);
+// router.get("/:contactId", ctrl.getById);
 
-router.post("/", addContactValidate, ctrl.add);
+// router.post("/", addContactValidate, ctrl.add);
 
-router.delete("/:contactId", ctrl.deleteById);
+// router.delete("/:contactId", ctrl.deleteById);
 
-router.put("/:contactId", updContactValidate, ctrl.updateById);
+// router.put("/:contactId", updContactValidate, ctrl.updateById);
 
 module.exports = router;
