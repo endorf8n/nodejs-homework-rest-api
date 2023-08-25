@@ -9,6 +9,8 @@ const validateBody = (schema, requestType) => {
         errorMessage = "missing required name field";
       } else if (requestType === "put") {
         errorMessage = "missing fields";
+      } else if (requestType === "patch") {
+        errorMessage = "missing field favorite";
       } else {
         errorMessage = error.message;
       }
@@ -20,13 +22,3 @@ const validateBody = (schema, requestType) => {
 };
 
 module.exports = validateBody;
-
-// const { error } = contactsAddSchema.validate(req.body);
-// if (error) {
-//   throw HttpError(400, "missing fields");
-// }
-
-// const { error } = contactsAddSchema.validate(req.body);
-// if (error) {
-//   throw HttpError(400, "missing required name field");
-// }
