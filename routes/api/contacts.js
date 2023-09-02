@@ -4,7 +4,7 @@ const ctrl = require("../../controllers/contacts");
 
 const { validateBody } = require("../../decorators");
 
-const { isValidId } = require("../../middlewares");
+const { authenticate, isValidId } = require("../../middlewares");
 
 const schemas = require("../../schemas/contacts");
 
@@ -16,6 +16,8 @@ const updContactFavoriteValidate = validateBody(
 );
 
 const router = express.Router();
+
+router.use(authenticate);
 
 router.get("/", ctrl.allContacts);
 
