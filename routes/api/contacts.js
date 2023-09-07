@@ -4,7 +4,7 @@ const ctrl = require("../../controllers/contacts");
 
 const { validateBody } = require("../../decorators");
 
-const { authenticate, isValidId, upload } = require("../../middlewares");
+const { authenticate, isValidId } = require("../../middlewares");
 
 const schemas = require("../../schemas/contacts");
 
@@ -23,7 +23,7 @@ router.get("/", ctrl.allContacts);
 
 router.get("/:contactId", isValidId, ctrl.getById);
 
-router.post("/", upload.single("avatar"), addContactValidate, ctrl.add);
+router.post("/", addContactValidate, ctrl.add);
 
 router.delete("/:contactId", isValidId, ctrl.deleteById);
 
