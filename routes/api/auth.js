@@ -15,8 +15,13 @@ const loginValidateMiddleware = validateBody(schemas.userLoginSchema);
 const subscriptionValidateMiddleware = validateBody(
   schemas.updateSubscriptionSchema
 );
+const emailValidateMiddleware = validateBody(schemas.userEmailSchema);
 
 router.post("/register", registerValidateMiddleware, ctrl.register);
+
+router.get("/verify/:verificationToken", ctrl.verify);
+
+router.post("/verify", emailValidateMiddleware, ctrl.resendVerifyEmail);
 
 router.post("/login", loginValidateMiddleware, ctrl.login);
 

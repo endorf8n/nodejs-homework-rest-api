@@ -19,8 +19,13 @@ const updateSubscriptionSchema = Joi.object({
   subscription: Joi.string().valid(...subscriptionValuesList),
 });
 
+const userEmailSchema = Joi.object({
+  email: Joi.string().pattern(emailRegexp).required(),
+});
+
 module.exports = {
   userRegisterSchema,
   userLoginSchema,
   updateSubscriptionSchema,
+  userEmailSchema,
 };
